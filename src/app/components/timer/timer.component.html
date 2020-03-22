@@ -1,0 +1,17 @@
+<div class="timer">
+    <ng-container *ngFor="let key of keys">
+        <h1>
+            {{notifications[key].obs.stepTimer | async}}
+        </h1>
+        <div class="btn-group" role="group" aria-label="Timer controls">
+            <button type="button" class="btn btn-primary" (click)="startStopTimer(key, isStarted)"
+                *ngIf="!isStarted">Start
+                / Stop</button>
+            <button type="button" class="btn btn-primary" (click)="startStopTimer(key, isStarted)"
+                *ngIf="isStarted">Start /
+                Stop</button>
+            <button type="button" class="btn btn-success" (click)="waitTimer(key)" #wait>Wait</button>
+            <button type="button" class="btn btn-danger" (click)="resetTimer(key)">Reset</button>
+        </div>
+    </ng-container>
+</div>
